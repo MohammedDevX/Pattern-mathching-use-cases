@@ -46,7 +46,7 @@ Console.WriteLine(CanAccessAdminPanel(user));
 
 
 
-// 4) 
+// 4) Business Logic use case :
 
 string GetOrderState(Order order)
 {
@@ -68,3 +68,22 @@ Order order = new()
 };
 
 Console.WriteLine(GetOrderState(order));
+
+
+
+// 5) 
+
+string Analyze(object value)
+{
+    return value switch
+    {
+        int num when num > 0 => "Positive integer",
+        int num when num <= 0 => "Negative integer",
+        string word when word.Length == 0 => "Empty string",
+        string word when word.Length > 0 => "Text",
+        null => "Null",
+        _ => "Unknow"
+    };
+}
+
+Console.WriteLine(Analyze("mohammed"));
