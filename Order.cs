@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pattern_matching_use_cases
 {
-    internal class User
+    internal class Order
     {
-        public string Role { get; set; }
-        public bool IsActive { get; set; }
+        public string Status { get; set; }
+        public decimal Total { get; set; }
+        public bool PaymentValid { get; set; }
     }
 }

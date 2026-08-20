@@ -43,3 +43,28 @@ bool CanAccessAdminPanel(User user)
 
 User user = new() { Role = "Developper", IsActive = true};
 Console.WriteLine(CanAccessAdminPanel(user));
+
+
+
+// 4) 
+
+string GetOrderState(Order order)
+{
+    return order switch
+    {
+        { Status: "PAID", Total: > 0, PaymentValid: true } => "Ready",
+        { Status: "PAID" } => "Paid",
+        { Status: "PENDING" } => "Waiting",
+        { Status: "CANCELLED" } => "Cancelled",
+        _ => "Unknown"
+    };
+}
+
+Order order = new()
+{
+    Status = "PAID",
+    Total = 123,
+    PaymentValid = true
+};
+
+Console.WriteLine(GetOrderState(order));
