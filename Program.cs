@@ -35,3 +35,11 @@ string GetAgeCategory(int age)
 Console.WriteLine(GetAgeCategory(20));
 
 
+// 3) Property Pattern : 
+bool CanAccessAdminPanel(User user)
+{
+    return user is { Role: "Admin", IsActive: true };
+}
+
+User user = new() { Role = "Developper", IsActive = true};
+Console.WriteLine(CanAccessAdminPanel(user));
