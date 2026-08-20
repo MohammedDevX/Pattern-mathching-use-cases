@@ -1,4 +1,9 @@
-﻿string Describe(object ob)
+﻿// Summary : Some use cases of using pattern matching : 
+
+// 1) Type pattern in switch : 
+using Pattern_matching_use_cases;
+
+string Describe(object ob)
 {
     return ob switch
     {
@@ -6,8 +11,27 @@
         string => "String",
         bool => "Boolean",
         null => "Null",
-        _ => "Other"
+        _ => "Other" // We use discart key to define default value
     };
 }
 
 Console.WriteLine(Describe(new List<int>() { 1, 2}));
+
+
+
+// 2) Relational + Logical Patterns :
+string GetAgeCategory(int age)
+{
+    return age switch
+    {
+        < 0 => "invalid",
+        0 and <= 12 => "Child",
+        13 and <= 17 => "Teenager",
+        18 and <= 64 => "Adult",
+        _ => "Senior",
+    };
+}
+
+Console.WriteLine(GetAgeCategory(20));
+
+
